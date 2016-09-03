@@ -17,18 +17,19 @@ sub _encode {
 
 sub table {
     my %params = @_;
-    my $rows = $params{rows} or die "Must provide rows!";
 
-    my $backend = $params{backend} || 'Text::Table::Tiny';
+    my $rows       = $params{rows} or die "Must provide rows!";
+    my $backend    = $params{backend} || 'Text::Table::Tiny';
+    my $header_row = $params{header_row} // 0;
 
     if ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
         return Text::Table::Tiny::table(
-            rows => $rows, header_row => $params{header_row}) . "\n";
+            rows => $rows, header_row => $header_row) . "\n";
     } elsif ($backend eq 'Text::Table::Org') {
         require Text::Table::Org;
         return Text::Table::Org::table(
-            rows => $rows, header_row => $params{header_row});
+            rows => $rows, header_row => $header_row);
     } elsif ($backend eq 'Text::Table::CSV') {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
@@ -42,7 +43,7 @@ sub table {
             border_style => 'Default::single_ascii',
         );
         # XXX pick an appropriate border style when header_row=0
-        if ($params{header_row}) {
+        if ($header_row) {
             $t->columns($rows->[0]);
             $t->add_row($rows->[$_]) for 1..@$rows-1;
         } else {
@@ -53,7 +54,7 @@ sub table {
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
-        if ($params{header_row}) {
+        if ($header_row) {
             $t->setCols(@{ $rows->[0] });
             $t->addRow(@{ $rows->[$_] }) for 1..@$rows-1;
         } else {
@@ -70,9 +71,10 @@ sub table {
     } elsif ($backend eq 'Text::MarkdownTable') {
         require Text::MarkdownTable;
         my $out = "";
-        my $t = Text::MarkdownTable->new(file => \$out);
-        my $fields = $rows->[0];
-        foreach (1..@$rows-1) {
+        my $fields =  $header_row ?
+            $rows->[0] : [map {"col$_"} 0..$#{ $rows->[0] }];
+        my $t = Text::MarkdownTable->new(file => \$out, columns => $fields);
+        foreach (($header_row ? 1:0) .. $#{$rows}) {
             my $row = $rows->[$_];
             $t->add( {
                 map { $fields->[$_] => $row->[$_] } 0..@$fields-1
