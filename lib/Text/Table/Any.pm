@@ -48,8 +48,13 @@ sub table {
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
-        $t->setCols(@{ $rows->[0] });
-        $t->addRow(@{ $rows->[$_] }) for 1..@$rows-1;
+        if ($params{header_row}) {
+            $t->setCols(@{ $rows->[0] });
+            $t->addRow(@{ $rows->[$_] }) for 1..@$rows-1;
+        } else {
+            $t->setCols(map { "col$_" } 0..$#{ $rows->[0] });
+            $t->addRow(@{ $rows->[$_] }) for 0..$#{$rows};
+        }
         return "$t";
     } elsif ($backend eq 'Text::FormatTable') {
         require Text::FormatTable;
