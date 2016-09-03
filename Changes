@@ -1,5 +1,13 @@
 Revision history for Text-Table-Any
 
+0.03    2016-09-03 (PERLANCAR)
+
+	- [Bugfix] Text::MarkdownTable backend: forgot to set columns().
+
+	- [Bugfix] Text::ANSITable backend: correctly observe header_row
+	  setting.
+
+
 0.02    2016-09-03 (PERLANCAR)
 
 	- [Bugfix] Text::ASCIITable backend: default to no header_row and
