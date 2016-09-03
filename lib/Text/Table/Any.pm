@@ -39,11 +39,16 @@ sub table {
             use_utf8 => 0,
             use_box_chars => 0,
             use_color => 0,
-            columns => $rows->[0],
             border_style => 'Default::single_ascii',
         );
         # XXX pick an appropriate border style when header_row=0
-        $t->add_row($rows->[$_]) for 1..@$rows-1;
+        if ($params{header_row}) {
+            $t->columns($rows->[0]);
+            $t->add_row($rows->[$_]) for 1..@$rows-1;
+        } else {
+            $t->columns([ map {"col$_"} 0..$#{$rows->[0]} ]);
+            $t->add_row($_) for @$rows;
+        }
         return $t->draw;
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
@@ -53,7 +58,7 @@ sub table {
             $t->addRow(@{ $rows->[$_] }) for 1..@$rows-1;
         } else {
             $t->setCols(map { "col$_" } 0..$#{ $rows->[0] });
-            $t->addRow(@{ $rows->[$_] }) for 0..$#{$rows};
+            $t->addRow(@$_) for @$rows;
         }
         return "$t";
     } elsif ($backend eq 'Text::FormatTable') {
