@@ -1,5 +1,10 @@
 Revision history for Text-Table-Any
 
+0.04    2016-09-06 (PERLANCAR)
+
+	- [doc] Show sample result for all backends.
+
+
 0.03    2016-09-03 (PERLANCAR)
 
 	- [Bugfix] Text::MarkdownTable backend: forgot to set columns().
