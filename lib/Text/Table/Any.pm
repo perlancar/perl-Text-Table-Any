@@ -127,6 +127,74 @@ The example shown in the SYNOPSIS generates the following table:
 
  +-------+----------+----------+
  | Name  | Rank     | Serial   |
+ +-------+----------+----------+
+ | alice | pvt      | 123456   |
+ | bob   | cpl      | 98765321 |
+ | carol | brig gen | 8745     |
+ +-------+----------+----------+
+
+When using C<Text::Table::Org> backend, the result is something like:
+
+ | Name  | Rank     | Serial   |
+ |-------+----------+----------|
+ | alice | pvt      | 123456   |
+ | bob   | cpl      | 98765321 |
+ | carol | brig gen | 8745     |
+
+When using C<Text::Table::CSV> backend:
+
+ "Name","Rank","Serial"
+ "alice","pvt","123456"
+ "bob","cpl","98765321"
+ "carol","brig gen","8745"
+
+When using C<Text::ANSITable> backend:
+
+ .-------+----------+----------.
+ | Name  | Rank     |   Serial |
+ +-------+----------+----------+
+ | alice | pvt      |   123456 |
+ | bob   | cpl      | 98765321 |
+ | carol | brig gen |     8745 |
+ `-------+----------+----------'
+
+When using C<Text::ASCIITable> backend:
+
+ .-----------------------------.
+ | Name  | Rank     | Serial   |
+ +-------+----------+----------+
+ | alice | pvt      |   123456 |
+ | bob   | cpl      | 98765321 |
+ | carol | brig gen |     8745 |
+ '-------+----------+----------'
+
+When using C<Text::FormatTable> backend:
+
+ Name |Rank    |Serial
+ alice|pvt     |123456
+ bob  |cpl     |98765321
+ carol|brig gen|8745
+
+When using C<Text::MarkdownTable> backend:
+
+ | Name  | Rank     | Serial   |
+ |-------|----------|----------|
+ | alice | pvt      | 123456   |
+ | bob   | cpl      | 98765321 |
+ | carol | brig gen | 8745     |
+
+When using C<Text::Table> backend:
+
+ Name  Rank     Serial
+ alice pvt        123456
+ bob   cpl      98765321
+ carol brig gen     8745
+
+When using C<Text::TabularDisplay> backend:
+
+ +-------+----------+----------+
+ | Name  | Rank     | Serial   |
+ +-------+----------+----------+
  | alice | pvt      | 123456   |
  | bob   | cpl      | 98765321 |
  | carol | brig gen | 8745     |
