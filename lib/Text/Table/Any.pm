@@ -26,6 +26,18 @@ sub table {
         require Text::Table::Tiny;
         return Text::Table::Tiny::table(
             rows => $rows, header_row => $header_row) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyColor') {
+        require Text::Table::TinyColor;
+        return Text::Table::TinyColor::table(
+            rows => $rows, header_row => $header_row) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyColorWide') {
+        require Text::Table::TinyColorWide;
+        return Text::Table::TinyColorWide::table(
+            rows => $rows, header_row => $header_row) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyWide') {
+        require Text::Table::TinyWide;
+        return Text::Table::TinyWide::table(
+            rows => $rows, header_row => $header_row) . "\n";
     } elsif ($backend eq 'Text::Table::Org') {
         require Text::Table::Org;
         return Text::Table::Org::table(
@@ -224,6 +236,12 @@ Optional. Pick a backend module. Available backends:
 =over
 
 =item * Text::Table::Tiny
+
+=item * Text::Table::TinyColor
+
+=item * Text::Table::TinyColorWide
+
+=item * Text::Table::TinyWide
 
 =item * Text::Table::Org
 
