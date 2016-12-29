@@ -46,6 +46,14 @@ sub table {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
             rows => $rows);
+    } elsif ($backend eq 'Text::Table::HTML') {
+        require Text::Table::HTML;
+        return Text::Table::HTML::table(
+            rows => $rows, header_row => $header_row);
+    } elsif ($backend eq 'Text::Table::HTML::DataTables') {
+        require Text::Table::HTML::DataTables;
+        return Text::Table::HTML::DataTables::table(
+            rows => $rows, header_row => $header_row);
     } elsif ($backend eq 'Text::ANSITable') {
         require Text::ANSITable;
         my $t = Text::ANSITable->new(
