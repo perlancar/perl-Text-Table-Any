@@ -1,5 +1,11 @@
 Revision history for Text-Table-Any
 
+0.06    2016-12-29 (PERLANCAR)
+
+	- Recognize new backends: Text::Table::HTML,
+	  Text::Table::HTML::DataTables.
+
+
 0.05    2016-10-19 (PERLANCAR)
 
 	- Support new backends: Text::Table::Tiny{Color,ColorWide,Wide}.
