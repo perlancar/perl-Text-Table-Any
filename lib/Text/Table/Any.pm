@@ -239,21 +239,9 @@ data, where each row is an array reference.
 
 =item * backend (str, default C<Text::Table::Tiny>)
 
-Optional. Pick a backend module. Available backends:
+Optional. Pick a backend module. Supported backends:
 
 =over
-
-=item * Text::Table::Tiny
-
-=item * Text::Table::TinyColor
-
-=item * Text::Table::TinyColorWide
-
-=item * Text::Table::TinyWide
-
-=item * Text::Table::Org
-
-=item * Text::Table::CSV
 
 =item * Text::ANSITable
 
@@ -264,6 +252,22 @@ Optional. Pick a backend module. Available backends:
 =item * Text::MarkdownTable
 
 =item * Text::Table
+
+=item * Text::Table::CSV
+
+=item * Text::Table::HTML
+
+=item * Text::Table::HTML::DataTables
+
+=item * Text::Table::Org
+
+=item * Text::Table::Tiny
+
+=item * Text::Table::TinyColor
+
+=item * Text::Table::TinyColorWide
+
+=item * Text::Table::TinyWide
 
 =item * Text::TabularDisplay
 
