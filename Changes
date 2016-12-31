@@ -1,5 +1,12 @@
 Revision history for Text-Table-Any
 
+0.07    2016-12-31 (PERLANCAR)
+
+	- No functional changes.
+
+	- [doc] Forgot to mention about the new backends in the POD.
+
+
 0.06    2016-12-29 (PERLANCAR)
 
 	- Recognize new backends: Text::Table::HTML,
