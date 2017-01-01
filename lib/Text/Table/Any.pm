@@ -54,6 +54,10 @@ sub table {
         require Text::Table::HTML::DataTables;
         return Text::Table::HTML::DataTables::table(
             rows => $rows, header_row => $header_row);
+    } elsif ($backend eq 'Text::Table::Paragraph') {
+        require Text::Table::Paragraph;
+        return Text::Table::Paragraph::table(
+            rows => $rows, header_row => $header_row);
     } elsif ($backend eq 'Text::ANSITable') {
         require Text::ANSITable;
         my $t = Text::ANSITable->new(
@@ -260,6 +264,8 @@ Optional. Pick a backend module. Supported backends:
 =item * Text::Table::HTML::DataTables
 
 =item * Text::Table::Org
+
+=item * Text::Table::Paragraph
 
 =item * Text::Table::Tiny
 
