@@ -1,5 +1,3 @@
-Revision history for Text-Table-Any
-
 0.08    2017-01-01 (PERLANCAR)
 
         - Add backend: Text::Table::Paragraph.
