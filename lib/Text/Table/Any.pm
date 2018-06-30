@@ -46,6 +46,14 @@ sub table {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
             rows => $rows);
+    } elsif ($backend eq 'Text::Table::TSV') {
+        require Text::Table::TSV;
+        return Text::Table::TSV::table(
+            rows => $rows, header_row => $header_row);
+    } elsif ($backend eq 'Text::Table::LTSV') {
+        require Text::Table::LTSV;
+        return Text::Table::LTSV::table(
+            rows => $rows);
     } elsif ($backend eq 'Text::Table::HTML') {
         require Text::Table::HTML;
         return Text::Table::HTML::table(
@@ -258,6 +266,10 @@ Optional. Pick a backend module. Supported backends:
 =item * Text::Table
 
 =item * Text::Table::CSV
+
+=item * Text::Table::TSV
+
+=item * Text::Table::LTSV
 
 =item * Text::Table::HTML
 
