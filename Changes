@@ -1,3 +1,10 @@
+0.090   2018-06-30 (PERLANCAR)
+
+	- Add new backends: Text::Table::{TSV,LTSV}.
+
+	- CSV backend: pass header_row option (Text::Table::CSV 0.020+).
+
+
 0.08    2017-01-01 (PERLANCAR)
 
         - Add backend: Text::Table::Paragraph.
