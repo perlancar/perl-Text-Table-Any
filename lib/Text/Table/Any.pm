@@ -20,7 +20,7 @@ sub table {
 
     my $rows       = $params{rows} or die "Must provide rows!";
     my $backend    = $params{backend} || 'Text::Table::Tiny';
-    my $header_row = $params{header_row} // 0;
+    my $header_row = $params{header_row} // 1;
 
     if ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
