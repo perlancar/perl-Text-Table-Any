@@ -128,6 +128,10 @@ sub table {
         my $t = Text::TabularDisplay->new(@{ $rows->[0] });
         $t->add(@{ $rows->[$_] }) for 1..@$rows-1;
         return $t->render . "\n";
+    } elsif ($backend eq 'Text::Table::XLSX') {
+        require Text::Table::XLSX;
+        return Text::Table::XLSX::table(
+            rows => $rows, header_row => $header_row);
     } else {
         die "Unknown backend '$backend'";
     }
@@ -292,6 +296,8 @@ Optional. Pick a backend module. Supported backends:
 =item * Text::Table::TinyColorWide
 
 =item * Text::Table::TinyWide
+
+=item * Text::Table::XLSX
 
 =item * Text::TabularDisplay
 
