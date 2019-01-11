@@ -9,10 +9,36 @@ use strict;
 use warnings;
 #END IFUNBUILT
 
+our @BACKENDS = qw(
+                      Text::Table::Tiny
+                      Text::Table::TinyColor
+                      Text::Table::TinyColorWide
+                      Text::Table::TinyWide
+                      Text::Table::Org
+                      Text::Table::CSV
+                      Text::Table::TSV
+                      Text::Table::LTSV
+                      Text::Table::ASV
+                      Text::Table::HTML
+                      Text::Table::HTML::DataTables
+                      Text::Table::Paragraph
+                      Text::ANSITable
+                      Text::ASCIITable
+                      Text::FormatTable
+                      Text::MarkdownTable
+                      Text::Table
+                      Text::TabularDisplay
+                      Text::Table::XLSX
+              );
+
 sub _encode {
     my $val = shift;
     $val =~ s/([\\"])/\\$1/g;
     "\"$val\"";
+}
+
+sub backends {
+    @BACKENDS;
 }
 
 sub table {
@@ -243,12 +269,13 @@ When using C<Text::TabularDisplay> backend:
 
 =head1 FUNCTIONS
 
-=head2 table(%params) => str
+=head2 table
 
+Usage:
 
-=head2 OPTIONS
+ table(%params) => str
 
-The C<table> function understands these arguments, which are passed as a hash.
+Known arguments:
 
 =over
 
@@ -263,43 +290,7 @@ Optional. Pick a backend module. Supported backends:
 
 =over
 
-=item * Text::ANSITable
-
-=item * Text::ASCIITable
-
-=item * Text::FormatTable
-
-=item * Text::MarkdownTable
-
-=item * Text::Table
-
-=item * Text::Table::CSV
-
-=item * Text::Table::TSV
-
-=item * Text::Table::LTSV
-
-=item * Text::Table::ASV
-
-=item * Text::Table::HTML
-
-=item * Text::Table::HTML::DataTables
-
-=item * Text::Table::Org
-
-=item * Text::Table::Paragraph
-
-=item * Text::Table::Tiny
-
-=item * Text::Table::TinyColor
-
-=item * Text::Table::TinyColorWide
-
-=item * Text::Table::TinyWide
-
-=item * Text::Table::XLSX
-
-=item * Text::TabularDisplay
+# CODE: require Text::Table::Any; for (@Text::Table::Any::BACKENDS) { print "=item * $_\n\n" }
 
 =back
 
@@ -310,6 +301,18 @@ as a header row, and separated visually from the rest of the table (e.g. with a
 ruled line). But some backends won't display differently.
 
 =back
+
+=head2 backends
+
+Return list of supported backends. You can also get the list from the
+L</@BACKENDS> package variable.
+
+
+=head1 VARIABLES
+
+=head2 @BACKENDS
+
+List of supported backends.
 
 
 =head1 SEE ALSO
