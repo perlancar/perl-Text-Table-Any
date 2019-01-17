@@ -71,11 +71,11 @@ sub table {
     } elsif ($backend eq 'Text::Table::CSV') {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows);
     } elsif ($backend eq 'Text::Table::TSV') {
         require Text::Table::TSV;
         return Text::Table::TSV::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows);
     } elsif ($backend eq 'Text::Table::LTSV') {
         require Text::Table::LTSV;
         return Text::Table::LTSV::table(
