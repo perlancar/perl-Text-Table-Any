@@ -29,6 +29,7 @@ our @BACKENDS = qw(
                       Text::Table
                       Text::TabularDisplay
                       Text::Table::XLSX
+                      Term::TablePrint
               );
 
 sub _encode {
@@ -158,6 +159,16 @@ sub table {
         require Text::Table::XLSX;
         return Text::Table::XLSX::table(
             rows => $rows, header_row => $header_row);
+    } elsif ($backend eq 'Term::TablePrint') {
+        require Term::TablePrint;
+        my $rows2;
+        if ($header_row) {
+            $rows2 = $rows;
+        } else {
+            $rows2 = [@$rows];
+            shift @$rows2;
+        }
+        return Term::TablePrint::print_table($rows);
     } else {
         die "Unknown backend '$backend'";
     }
