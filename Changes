@@ -1,3 +1,8 @@
+0.096   2019-11-29  Released-By: PERLANCAR; Urgency: medium
+
+	- Text::Table::CSV (0.022) now (re-)observes header_row=0.
+
+
 0.095   2019-02-17  Released-By: PERLANCAR
 
 	- Add backend: Term::TablePrint.
