@@ -1,6 +1,8 @@
 package Text::Table::Any;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 #IFUNBUILT
@@ -11,6 +13,7 @@ use warnings;
 
 our @BACKENDS = qw(
                       Text::Table::Tiny
+                      Text::Table::TinyBorderStyle
                       Text::Table::TinyColor
                       Text::Table::TinyColorWide
                       Text::Table::TinyWide
@@ -52,6 +55,10 @@ sub table {
     if ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
         return Text::Table::Tiny::table(
+            rows => $rows, header_row => $header_row) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
+        require Text::Table::TinyBorderStyle;
+        return Text::Table::TinyBorderStyle::table(
             rows => $rows, header_row => $header_row) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColor') {
         require Text::Table::TinyColor;
@@ -197,7 +204,7 @@ sub table {
 
 This module provides a single function, C<table>, which formats a
 two-dimensional array of data as text table, using one of several available
-backends. The interface is modelled after L<Text::Table::Tiny> (0.3);
+backends. The interface is modelled after L<Text::Table::Tiny> (0.03);
 Text::Table::Tiny also happens to be the default backend.
 
 The example shown in the SYNOPSIS generates the following table:
