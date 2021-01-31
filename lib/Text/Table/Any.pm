@@ -110,7 +110,7 @@ sub table {
             use_utf8 => 0,
             use_box_chars => 0,
             use_color => 0,
-            border_style => 'Default::single_ascii',
+            border_style => 'ASCII::SingleLine',
         );
         # XXX pick an appropriate border style when header_row=0
         if ($header_row) {
