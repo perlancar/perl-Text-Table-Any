@@ -335,6 +335,6 @@ List of supported backends.
 
 =head1 SEE ALSO
 
-L<Bencher::Scenario::TextTableModules>
+L<Acme::CPANModules::TextTable>
 
 =cut
