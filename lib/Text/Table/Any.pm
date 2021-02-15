@@ -12,27 +12,27 @@ use warnings;
 #END IFUNBUILT
 
 our @BACKENDS = qw(
-                      Text::Table::Tiny
-                      Text::Table::TinyBorderStyle
-                      Text::Table::TinyColor
-                      Text::Table::TinyColorWide
-                      Text::Table::TinyWide
-                      Text::Table::Org
-                      Text::Table::CSV
-                      Text::Table::TSV
-                      Text::Table::LTSV
-                      Text::Table::ASV
-                      Text::Table::HTML
-                      Text::Table::HTML::DataTables
-                      Text::Table::Paragraph
+                      Term::TablePrint
                       Text::ANSITable
                       Text::ASCIITable
                       Text::FormatTable
                       Text::MarkdownTable
                       Text::Table
-                      Text::TabularDisplay
+                      Text::Table::ASV
+                      Text::Table::CSV
+                      Text::Table::HTML
+                      Text::Table::HTML::DataTables
+                      Text::Table::LTSV
+                      Text::Table::Org
+                      Text::Table::Paragraph
+                      Text::Table::Tiny
+                      Text::Table::TinyBorderStyle
+                      Text::Table::TinyColor
+                      Text::Table::TinyColorWide
+                      Text::Table::TinyWide
+                      Text::Table::TSV
                       Text::Table::XLSX
-                      Term::TablePrint
+                      Text::TabularDisplay
               );
 
 sub _encode {
