@@ -1,3 +1,8 @@
+0.100   2021-02-16  Released-By: PERLANCAR; Urgency: medium
+
+	- Add backend: Text::UnicodeBox::Table.
+
+
 0.099   2021-02-16  Released-By: PERLANCAR; Urgency: medium
 
 	- Add backends: Text::Table::Manifold, Text::Table::Span,
