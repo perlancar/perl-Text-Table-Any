@@ -36,6 +36,7 @@ our @BACKENDS = qw(
                       Text::Table::TSV
                       Text::Table::XLSX
                       Text::TabularDisplay
+                      Text::UnicodeBox::Table
               );
 
 sub _encode {
@@ -143,6 +144,17 @@ sub table {
             $t->data($rows);
         }
         return join("\n", @{$t->render(padding => 1)}) . "\n";
+    } elsif ($backend eq 'Text::UnicodeBox::Table') {
+        require Text::UnicodeBox::Table;
+        my $t = Text::UnicodeBox::Table->new;
+        if ($header_row) {
+            $t->add_header(@{ $rows->[0] });
+            $t->add_row(@{ $rows->[$_] }) for 1 .. $#{$rows};
+        } else {
+            $t->add_header(map {"col$_"} 0..$#{$rows->[0]});
+            $t->add_row(@{ $rows->[$_] }) for 0 .. $#{$rows};
+        }
+        return $t->render;
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
