@@ -23,6 +23,7 @@ our @BACKENDS = qw(
                       Text::Table::HTML
                       Text::Table::HTML::DataTables
                       Text::Table::LTSV
+                      Text::Table::Manifold
                       Text::Table::Org
                       Text::Table::Paragraph
                       Text::Table::Span
@@ -131,6 +132,17 @@ sub table {
             $t->add_row($_) for @$rows;
         }
         return $t->draw;
+    } elsif ($backend eq 'Text::Table::Manifold') {
+        require Text::Table::Manifold;
+        my $t = Text::Table::Manifold->new;
+        if ($header_row) {
+            $t->headers($rows->[0]);
+            $t->data([ @{$rows}[1 .. $#{$rows}] ]);
+        } else {
+            $t->headers([ map {"col$_"} 0..$#{$rows->[0]} ]);
+            $t->data($rows);
+        }
+        return join("\n", @{$t->render(padding => 1)}) . "\n";
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
