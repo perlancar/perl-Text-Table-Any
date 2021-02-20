@@ -52,70 +52,101 @@ sub backends {
 sub table {
     my %params = @_;
 
-    my $rows       = $params{rows} or die "Must provide rows!";
-    my $backend    = $params{backend} || 'Text::Table::Tiny';
-    my $header_row = $params{header_row} // 1;
+    my $rows          = $params{rows} or die "Must provide rows!";
+    my $backend       = $params{backend} || 'Text::Table::Tiny';
+    my $header_row    = $params{header_row} // 1;
+    my $separate_rows = $params{separate_rows} // 0;
 
     if ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
         return Text::Table::Tiny::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
         require Text::Table::TinyBorderStyle;
         return Text::Table::TinyBorderStyle::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColor') {
         require Text::Table::TinyColor;
         return Text::Table::TinyColor::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColorWide') {
         require Text::Table::TinyColorWide;
         return Text::Table::TinyColorWide::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyWide') {
         require Text::Table::TinyWide;
         return Text::Table::TinyWide::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::More') {
         require Text::Table::More;
-        return Text::Table::Span::generate_table(
-            rows => $rows, header_row => $header_row) . "\n";
+        return Text::Table::More::generate_table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::Sprintf') {
         require Text::Table::Sprintf;
         return Text::Table::Sprintf::table(
-            rows => $rows, header_row => $header_row) . "\n";
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
     } elsif ($backend eq 'Text::Table::Org') {
         require Text::Table::Org;
         return Text::Table::Org::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::Table::CSV') {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::Table::TSV') {
         require Text::Table::TSV;
         return Text::Table::TSV::table(
-            rows => $rows);
+            rows => $rows,
+        );
     } elsif ($backend eq 'Text::Table::LTSV') {
         require Text::Table::LTSV;
         return Text::Table::LTSV::table(
-            rows => $rows);
+            rows => $rows,
+        );
     } elsif ($backend eq 'Text::Table::ASV') {
         require Text::Table::ASV;
         return Text::Table::ASV::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::Table::HTML') {
         require Text::Table::HTML;
         return Text::Table::HTML::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::Table::HTML::DataTables') {
         require Text::Table::HTML::DataTables;
         return Text::Table::HTML::DataTables::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::Table::Paragraph') {
         require Text::Table::Paragraph;
         return Text::Table::Paragraph::table(
-            rows => $rows, header_row => $header_row);
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::ANSITable') {
         require Text::ANSITable;
         my $t = Text::ANSITable->new(
@@ -132,6 +163,7 @@ sub table {
             $t->columns([ map {"col$_"} 0..$#{$rows->[0]} ]);
             $t->add_row($_) for @$rows;
         }
+        $t->show_row_separator(1) if $separate_rows;
         return $t->draw;
     } elsif ($backend eq 'Text::Table::Manifold') {
         require Text::Table::Manifold;
@@ -351,6 +383,11 @@ Optional. Pick a backend module. Supported backends:
 Optional. If given a true value, the first row in the data will be interpreted
 as a header row, and separated visually from the rest of the table (e.g. with a
 ruled line). But some backends won't display differently.
+
+=item * separate_rows
+
+Boolean. Optional. Default false. If set to true, will draw a separator line
+after each data row.
 
 =back
 
