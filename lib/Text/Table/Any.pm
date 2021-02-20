@@ -24,9 +24,9 @@ our @BACKENDS = qw(
                       Text::Table::HTML::DataTables
                       Text::Table::LTSV
                       Text::Table::Manifold
+                      Text::Table::More
                       Text::Table::Org
                       Text::Table::Paragraph
-                      Text::Table::Span
                       Text::Table::Sprintf
                       Text::Table::Tiny
                       Text::Table::TinyBorderStyle
@@ -76,8 +76,8 @@ sub table {
         require Text::Table::TinyWide;
         return Text::Table::TinyWide::table(
             rows => $rows, header_row => $header_row) . "\n";
-    } elsif ($backend eq 'Text::Table::Span') {
-        require Text::Table::Span;
+    } elsif ($backend eq 'Text::Table::More') {
+        require Text::Table::More;
         return Text::Table::Span::generate_table(
             rows => $rows, header_row => $header_row) . "\n";
     } elsif ($backend eq 'Text::Table::Sprintf') {
