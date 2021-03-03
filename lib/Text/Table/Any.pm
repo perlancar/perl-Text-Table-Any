@@ -263,15 +263,15 @@ sub table {
      ['carol', 'brig gen', '8745'],
  ];
  print Text::Table::Any::table(rows => $rows, header_row => 1,
-                               backend => 'Text::Table::Tiny');
+                               backend => 'Text::Table::More');
 
 
 =head1 DESCRIPTION
 
 This module provides a single function, C<table>, which formats a
 two-dimensional array of data as text table, using one of several available
-backends. The interface is modelled after L<Text::Table::Tiny> (0.03);
-Text::Table::Tiny also happens to be the default backend.
+backends. The interface is modelled after L<Text::Table::Tiny> (0.03).
+L<Text::Table::Sprintf> is the default backend.
 
 The example shown in the SYNOPSIS generates the following table:
 
@@ -368,7 +368,7 @@ Known arguments:
 Required. Takes an array reference which should contain one or more rows of
 data, where each row is an array reference.
 
-=item * backend (str, default C<Text::Table::Tiny>)
+=item * backend (str, default C<Text::Table::Sprintf>)
 
 Optional. Pick a backend module. Supported backends:
 
