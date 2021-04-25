@@ -28,6 +28,7 @@ our @BACKENDS = qw(
                       Text::Table::Org
                       Text::Table::Paragraph
                       Text::Table::Sprintf
+                      Text::Table::TickitWidget
                       Text::Table::Tiny
                       Text::Table::TinyBorderStyle
                       Text::Table::TinyColor
@@ -57,7 +58,13 @@ sub table {
     my $header_row    = $params{header_row} // 1;
     my $separate_rows = $params{separate_rows} // 0;
 
-    if ($backend eq 'Text::Table::Tiny') {
+    if ($backend eq 'Text::Table::TickitWidget') {
+        require Text::Table::TickitWidget;
+        return Text::Table::TickitWidget::table(
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
         return Text::Table::Tiny::table(
             rows => $rows,
