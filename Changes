@@ -1,3 +1,8 @@
+0.103   2021-04-25  Released-By: PERLANCAR; Urgency: medium
+
+	- Support backend Text::Table::TickitWidget.
+
+
 0.102   2021-03-03  Released-By: PERLANCAR; Urgency: medium
 
 	- Change default backend from Text::Table::Tiny to
