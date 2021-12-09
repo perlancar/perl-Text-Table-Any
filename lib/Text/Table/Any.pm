@@ -142,6 +142,7 @@ sub table {
         return Text::Table::HTML::table(
             rows => $rows,
             header_row => $header_row,
+            (title => $params{title}) x !!defined($params{title}),
         );
     } elsif ($backend eq 'Text::Table::HTML::DataTables') {
         require Text::Table::HTML::DataTables;
@@ -411,7 +412,8 @@ Not all backends support this.
 
 Optional. Str. Title of the table.
 
-Currently the only backend supporting this is C<Text::Table::HTML::DataTables>.
+Currently the only backends supporting this are C<Text::Table::HTML> and
+C<Text::Table::HTML::DataTables>.
 
 =back
 
