@@ -1,15 +1,15 @@
 package Text::Table::Any;
 
-# AUTHORITY
-# DATE
-# DIST
-# VERSION
-
 #IFUNBUILT
 use 5.010001;
 use strict;
 use warnings;
 #END IFUNBUILT
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
 
 our @BACKENDS = qw(
                       Term::TablePrint
@@ -366,18 +366,19 @@ Usage:
 
  table(%params) => str
 
-Known arguments:
+Except for the C<backend> parameter, the parameters will mostly be passed to the
+backend, sometimes slightly modified if necessary to achieve the desired effect.
+If a parameter is not supported by a backend, then it will not be passed to the
+backend.
+
+Known parameters:
 
 =over
 
-=item * rows (aoaos)
+=item * backend
 
-Required. Takes an array reference which should contain one or more rows of
-data, where each row is an array reference.
-
-=item * backend (str, default C<Text::Table::Sprintf>)
-
-Optional. Pick a backend module. Supported backends:
+Optional. Str, default C<Text::Table::Sprintf>. Pick a backend module. Supported
+backends:
 
 =over
 
@@ -385,16 +386,24 @@ Optional. Pick a backend module. Supported backends:
 
 =back
 
-=item * header_row (bool, default 0)
+=item * rows
 
-Optional. If given a true value, the first row in the data will be interpreted
-as a header row, and separated visually from the rest of the table (e.g. with a
-ruled line). But some backends won't display differently.
+Required. Aoaos (array of array-of-scalars). Each element in the array is a row
+of data, where each row is an array reference.
+
+=item * header_row
+
+Optional. Bool, default is false. If given a true value, the first row in the
+data will be interpreted as a header row, and separated visually from the rest
+of the table (e.g. with a ruled line). But some backends won't display
+differently.
 
 =item * separate_rows
 
-Boolean. Optional. Default false. If set to true, will draw a separator line
+Boolean. Optional. Default is false. If set to true, will draw a separator line
 after each data row.
+
+Not all backends support this.
 
 =back
 
