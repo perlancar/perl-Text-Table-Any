@@ -147,6 +147,7 @@ sub table {
         return Text::Table::HTML::DataTables::table(
             rows => $rows,
             header_row => $header_row,
+            (title => $params{title}) x !!defined($params{title}),
         );
     } elsif ($backend eq 'Text::Table::Paragraph') {
         require Text::Table::Paragraph;
@@ -404,6 +405,12 @@ Boolean. Optional. Default is false. If set to true, will draw a separator line
 after each data row.
 
 Not all backends support this.
+
+=item * title
+
+Optional. Str. Title of the table.
+
+Currently the only backend supporting this is C<Text::Table::HTML::DataTables>.
 
 =back
 
