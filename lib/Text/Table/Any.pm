@@ -1,3 +1,4 @@
+## no critic: TestingAndDebugging::RequireUseStrict
 package Text::Table::Any;
 
 #IFUNBUILT
