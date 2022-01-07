@@ -13,6 +13,7 @@ use warnings;
 # VERSION
 
 our @BACKENDS = qw(
+                      Term::Table
                       Term::TablePrint
                       Text::ANSITable
                       Text::ASCIITable
@@ -252,6 +253,21 @@ sub table {
             shift @$rows2;
         }
         return Term::TablePrint::print_table($rows);
+    } elsif ($backend eq 'Term::Table') {
+        require Term::Table;
+        my ($header, $data_rows);
+        if ($header_row) {
+            $header = $rows->[0];
+            $data_rows = [ @{$rows}[1 .. $#{$rows}] ];
+        } else {
+            $header = [ map {"col$_"} 0..$#{$rows->[0]} ];
+            $data_rows = $rows;
+        }
+        my $table = Term::Table->new(
+            header => $header,
+            rows   => $data_rows,
+        );
+        return join("\n", $table->render)."\n";
     } else {
         die "Unknown backend '$backend'";
     }
