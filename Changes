@@ -1,3 +1,9 @@
+0.108   2022-01-07  Released-By: PERLANCAR; Urgency: medium
+
+	- [doc] Document what parameters each backend supports (also in
+	  %BACKEND_FEATURES).
+
+
 0.107   2022-01-07  Released-By: PERLANCAR; Urgency: medium
 
 	- Add backend: Term::Table.
