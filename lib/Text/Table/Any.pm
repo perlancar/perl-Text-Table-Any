@@ -12,35 +12,172 @@ use warnings;
 # DIST
 # VERSION
 
-our @BACKENDS = qw(
-                      Term::Table
-                      Term::TablePrint
-                      Text::ANSITable
-                      Text::ASCIITable
-                      Text::FormatTable
-                      Text::MarkdownTable
-                      Text::Table
-                      Text::Table::ASV
-                      Text::Table::CSV
-                      Text::Table::HTML
-                      Text::Table::HTML::DataTables
-                      Text::Table::LTSV
-                      Text::Table::Manifold
-                      Text::Table::More
-                      Text::Table::Org
-                      Text::Table::Paragraph
-                      Text::Table::Sprintf
-                      Text::Table::TickitWidget
-                      Text::Table::Tiny
-                      Text::Table::TinyBorderStyle
-                      Text::Table::TinyColor
-                      Text::Table::TinyColorWide
-                      Text::Table::TinyWide
-                      Text::Table::TSV
-                      Text::Table::XLSX
-                      Text::TabularDisplay
-                      Text::UnicodeBox::Table
-              );
+our %BACKEND_FEATURES = (
+    "Term::Table" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Term::TablePrint" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::ANSITable" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::ASCIITable" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::FormatTable" => {
+        rows => 1,
+        header_row => 0,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::MarkdownTable" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table" => {
+        rows => 1,
+        header_row => 0,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::ASV" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::CSV" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::HTML" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 1,
+    },
+    "Text::Table::HTML::DataTables" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 1,
+    },
+    "Text::Table::LTSV" => {
+        rows => 1,
+        header_row => 0,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::Manifold" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::More" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::Org" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::Paragraph" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::Sprintf" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TickitWidget" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::Tiny" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TinyBorderStyle" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TinyColor" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TinyColorWide" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TinyWide" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 1,
+        title => 0,
+    },
+    "Text::Table::TSV" => {
+        rows => 1,
+        header_row => 0,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::Table::XLSX" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::TabularDisplay" => {
+        rows => 1,
+        header_row => 0,
+        separate_rows => 0,
+        title => 0,
+    },
+    "Text::UnicodeBox::Table" => {
+        rows => 1,
+        header_row => 1,
+        separate_rows => 0,
+        title => 0,
+    },
+);
+
+our @BACKENDS = sort keys %BACKEND_FEATURES;
 
 sub _encode {
     my $val = shift;
@@ -60,104 +197,31 @@ sub table {
     my $header_row    = $params{header_row} // 1;
     my $separate_rows = $params{separate_rows} // 0;
 
-    if ($backend eq 'Text::Table::TickitWidget') {
-        require Text::Table::TickitWidget;
-        return Text::Table::TickitWidget::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::Tiny') {
-        require Text::Table::Tiny;
-        return Text::Table::Tiny::table(
-            rows => $rows,
-            header_row => $header_row,
-            separate_rows => $separate_rows,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
-        require Text::Table::TinyBorderStyle;
-        return Text::Table::TinyBorderStyle::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::TinyColor') {
-        require Text::Table::TinyColor;
-        return Text::Table::TinyColor::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::TinyColorWide') {
-        require Text::Table::TinyColorWide;
-        return Text::Table::TinyColorWide::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::TinyWide') {
-        require Text::Table::TinyWide;
-        return Text::Table::TinyWide::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::More') {
-        require Text::Table::More;
-        return Text::Table::More::generate_table(
-            rows => $rows,
-            header_row => $header_row,
-            separate_rows => $separate_rows,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::Sprintf') {
-        require Text::Table::Sprintf;
-        return Text::Table::Sprintf::table(
-            rows => $rows,
-            header_row => $header_row,
-        ) . "\n";
-    } elsif ($backend eq 'Text::Table::Org') {
-        require Text::Table::Org;
-        return Text::Table::Org::table(
-            rows => $rows,
-            header_row => $header_row,
+    if ($backend eq 'Term::Table') {
+        require Term::Table;
+        my ($header, $data_rows);
+        if ($header_row) {
+            $header = $rows->[0];
+            $data_rows = [ @{$rows}[1 .. $#{$rows}] ];
+        } else {
+            $header = [ map {"col$_"} 0..$#{$rows->[0]} ];
+            $data_rows = $rows;
+        }
+        my $table = Term::Table->new(
+            header => $header,
+            rows   => $data_rows,
         );
-    } elsif ($backend eq 'Text::Table::CSV') {
-        require Text::Table::CSV;
-        return Text::Table::CSV::table(
-            rows => $rows,
-            header_row => $header_row,
-        );
-    } elsif ($backend eq 'Text::Table::TSV') {
-        require Text::Table::TSV;
-        return Text::Table::TSV::table(
-            rows => $rows,
-        );
-    } elsif ($backend eq 'Text::Table::LTSV') {
-        require Text::Table::LTSV;
-        return Text::Table::LTSV::table(
-            rows => $rows,
-        );
-    } elsif ($backend eq 'Text::Table::ASV') {
-        require Text::Table::ASV;
-        return Text::Table::ASV::table(
-            rows => $rows,
-            header_row => $header_row,
-        );
-    } elsif ($backend eq 'Text::Table::HTML') {
-        require Text::Table::HTML;
-        return Text::Table::HTML::table(
-            rows => $rows,
-            header_row => $header_row,
-            (title => $params{title}) x !!defined($params{title}),
-        );
-    } elsif ($backend eq 'Text::Table::HTML::DataTables') {
-        require Text::Table::HTML::DataTables;
-        return Text::Table::HTML::DataTables::table(
-            rows => $rows,
-            header_row => $header_row,
-            (title => $params{title}) x !!defined($params{title}),
-        );
-    } elsif ($backend eq 'Text::Table::Paragraph') {
-        require Text::Table::Paragraph;
-        return Text::Table::Paragraph::table(
-            rows => $rows,
-            header_row => $header_row,
-        );
+        return join("\n", $table->render)."\n";
+    } elsif ($backend eq 'Term::TablePrint') {
+        require Term::TablePrint;
+        my $rows2;
+        if ($header_row) {
+            $rows2 = $rows;
+        } else {
+            $rows2 = [@$rows];
+            shift @$rows2;
+        }
+        return Term::TablePrint::print_table($rows);
     } elsif ($backend eq 'Text::ANSITable') {
         require Text::ANSITable;
         my $t = Text::ANSITable->new(
@@ -176,28 +240,6 @@ sub table {
         }
         $t->show_row_separator(1) if $separate_rows;
         return $t->draw;
-    } elsif ($backend eq 'Text::Table::Manifold') {
-        require Text::Table::Manifold;
-        my $t = Text::Table::Manifold->new;
-        if ($header_row) {
-            $t->headers($rows->[0]);
-            $t->data([ @{$rows}[1 .. $#{$rows}] ]);
-        } else {
-            $t->headers([ map {"col$_"} 0..$#{$rows->[0]} ]);
-            $t->data($rows);
-        }
-        return join("\n", @{$t->render(padding => 1)}) . "\n";
-    } elsif ($backend eq 'Text::UnicodeBox::Table') {
-        require Text::UnicodeBox::Table;
-        my $t = Text::UnicodeBox::Table->new;
-        if ($header_row) {
-            $t->add_header(@{ $rows->[0] });
-            $t->add_row(@{ $rows->[$_] }) for 1 .. $#{$rows};
-        } else {
-            $t->add_header(map {"col$_"} 0..$#{$rows->[0]});
-            $t->add_row(@{ $rows->[$_] }) for 0 .. $#{$rows};
-        }
-        return $t->render;
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
@@ -234,40 +276,143 @@ sub table {
         my $t = Text::Table->new(@{ $rows->[0] });
         $t->load(@{ $rows }[1..@$rows-1]);
         return $t;
+    } elsif ($backend eq 'Text::Table::ASV') {
+        require Text::Table::ASV;
+        return Text::Table::ASV::table(
+            rows => $rows,
+            header_row => $header_row,
+        );
+    } elsif ($backend eq 'Text::Table::CSV') {
+        require Text::Table::CSV;
+        return Text::Table::CSV::table(
+            rows => $rows,
+            header_row => $header_row,
+        );
+    } elsif ($backend eq 'Text::Table::HTML') {
+        require Text::Table::HTML;
+        return Text::Table::HTML::table(
+            rows => $rows,
+            header_row => $header_row,
+            (title => $params{title}) x !!defined($params{title}),
+        );
+    } elsif ($backend eq 'Text::Table::HTML::DataTables') {
+        require Text::Table::HTML::DataTables;
+        return Text::Table::HTML::DataTables::table(
+            rows => $rows,
+            header_row => $header_row,
+            (title => $params{title}) x !!defined($params{title}),
+        );
+    } elsif ($backend eq 'Text::Table::LTSV') {
+        require Text::Table::LTSV;
+        return Text::Table::LTSV::table(
+            rows => $rows,
+        );
+    } elsif ($backend eq 'Text::Table::Manifold') {
+        require Text::Table::Manifold;
+        my $t = Text::Table::Manifold->new;
+        if ($header_row) {
+            $t->headers($rows->[0]);
+            $t->data([ @{$rows}[1 .. $#{$rows}] ]);
+        } else {
+            $t->headers([ map {"col$_"} 0..$#{$rows->[0]} ]);
+            $t->data($rows);
+        }
+        return join("\n", @{$t->render(padding => 1)}) . "\n";
+    } elsif ($backend eq 'Text::Table::More') {
+        require Text::Table::More;
+        return Text::Table::More::generate_table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::Org') {
+        require Text::Table::Org;
+        return Text::Table::Org::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        );
+    } elsif ($backend eq 'Text::Table::Paragraph') {
+        require Text::Table::Paragraph;
+        return Text::Table::Paragraph::table(
+            rows => $rows,
+            header_row => $header_row,
+        );
+    } elsif ($backend eq 'Text::Table::Sprintf') {
+        require Text::Table::Sprintf;
+        return Text::Table::Sprintf::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TickitWidget') {
+        require Text::Table::TickitWidget;
+        return Text::Table::TickitWidget::table(
+            rows => $rows,
+            header_row => $header_row,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::Tiny') {
+        require Text::Table::Tiny;
+        return Text::Table::Tiny::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
+        require Text::Table::TinyBorderStyle;
+        return Text::Table::TinyBorderStyle::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyColor') {
+        require Text::Table::TinyColor;
+        return Text::Table::TinyColor::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyColorWide') {
+        require Text::Table::TinyColorWide;
+        return Text::Table::TinyColorWide::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TinyWide') {
+        require Text::Table::TinyWide;
+        return Text::Table::TinyWide::table(
+            rows => $rows,
+            header_row => $header_row,
+            separate_rows => $separate_rows,
+        ) . "\n";
+    } elsif ($backend eq 'Text::Table::TSV') {
+        require Text::Table::TSV;
+        return Text::Table::TSV::table(
+            rows => $rows,
+        );
+    } elsif ($backend eq 'Text::Table::XLSX') {
+        require Text::Table::XLSX;
+        return Text::Table::XLSX::table(
+            rows => $rows,
+            header_row => $header_row,
+        );
     } elsif ($backend eq 'Text::TabularDisplay') {
         require Text::TabularDisplay;
         my $t = Text::TabularDisplay->new(@{ $rows->[0] });
         $t->add(@{ $rows->[$_] }) for 1..@$rows-1;
         return $t->render . "\n";
-    } elsif ($backend eq 'Text::Table::XLSX') {
-        require Text::Table::XLSX;
-        return Text::Table::XLSX::table(
-            rows => $rows, header_row => $header_row);
-    } elsif ($backend eq 'Term::TablePrint') {
-        require Term::TablePrint;
-        my $rows2;
+    } elsif ($backend eq 'Text::UnicodeBox::Table') {
+        require Text::UnicodeBox::Table;
+        my $t = Text::UnicodeBox::Table->new;
         if ($header_row) {
-            $rows2 = $rows;
+            $t->add_header(@{ $rows->[0] });
+            $t->add_row(@{ $rows->[$_] }) for 1 .. $#{$rows};
         } else {
-            $rows2 = [@$rows];
-            shift @$rows2;
+            $t->add_header(map {"col$_"} 0..$#{$rows->[0]});
+            $t->add_row(@{ $rows->[$_] }) for 0 .. $#{$rows};
         }
-        return Term::TablePrint::print_table($rows);
-    } elsif ($backend eq 'Term::Table') {
-        require Term::Table;
-        my ($header, $data_rows);
-        if ($header_row) {
-            $header = $rows->[0];
-            $data_rows = [ @{$rows}[1 .. $#{$rows}] ];
-        } else {
-            $header = [ map {"col$_"} 0..$#{$rows->[0]} ];
-            $data_rows = $rows;
-        }
-        my $table = Term::Table->new(
-            header => $header,
-            rows   => $data_rows,
-        );
-        return join("\n", $table->render)."\n";
+        return $t->render;
     } else {
         die "Unknown backend '$backend'";
     }
@@ -404,6 +549,10 @@ backends:
 # CODE: require Text::Table::Any; for (@Text::Table::Any::BACKENDS) { print "=item * $_\n\n" }
 
 =back
+
+Support matrix for each backend:
+
+# CODE: require Text::Table::Any; my $ff; my $rows = [['backend']]; for (sort keys %{ $Text::Table::Any::BACKEND_FEATURES{"Text::Table::Sprintf"} }) { push @$ff, $_; push @{$rows->[0]},$_ } for my $be (sort keys %Text::Table::Any::BACKEND_FEATURES) { push @$rows, [$be, map { $Text::Table::Any::BACKEND_FEATURES{$be}{$_} } @$ff] } my $t = Text::Table::Any::table(header_row=>1, rows=>$rows, backend=>"Text::Table::Tiny"); $t =~ s/^/ /gm; print $t;
 
 =item * rows
 
