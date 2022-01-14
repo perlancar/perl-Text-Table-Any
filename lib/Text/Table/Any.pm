@@ -591,6 +591,13 @@ L</@BACKENDS> package variable.
 
 List of supported backends.
 
+=head2 %BACKEND_FEATURES
+
+List of features supported by each backend. Hash key is backend name, e.g.
+C<Text::Table::Sprintf>. Hash value is a hashref containing feature name as
+hashref key and a boolean value or other value as hashref value to describe the
+support of that feature by that backend.
+
 
 =head1 SEE ALSO
 
