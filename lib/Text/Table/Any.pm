@@ -1,11 +1,8 @@
-## no critic: TestingAndDebugging::RequireUseStrict
 package Text::Table::Any;
 
-#IFUNBUILT
 use 5.010001;
 use strict;
 use warnings;
-#END IFUNBUILT
 
 # AUTHORITY
 # DATE
