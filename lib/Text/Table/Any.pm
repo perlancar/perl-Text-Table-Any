@@ -384,7 +384,7 @@ sub table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
-        ) . "\n";
+        );
     } elsif ($backend eq 'Text::Table::TickitWidget') {
         require Text::Table::TickitWidget;
         return Text::Table::TickitWidget::table(
