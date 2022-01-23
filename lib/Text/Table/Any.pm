@@ -580,69 +580,39 @@ two-dimensional array of data as text table, using one of several available
 backends. The interface is modelled after L<Text::Table::Tiny>.
 L<Text::Table::Sprintf> is the default backend.
 
-The example shown in the SYNOPSIS generates the following table:
 
+=head1 DIFFERENCES WITH TEXT::TABLE::TINY
 
-When using C<Text::Table::Org> backend, the result is something like:
+=over
 
-When using C<Text::Table::CSV> backend:
+=item * 'top_and_tail' option from Text::Table::Tiny is not supported
 
- "Name","Rank","Serial"
- "alice","pvt","123456"
- "bob","cpl","98765321"
- "carol","brig gen","8745"
+Probably won't be supported. You can pass this option to Text::Table::Tiny
+backend via L</backend_opts> option.
 
-When using C<Text::ANSITable> backend:
+=item * 'align' option from Text::Table::Tiny is not supported
 
- .-------+----------+----------.
- | Name  | Rank     |   Serial |
- +-------+----------+----------+
- | alice | pvt      |   123456 |
- | bob   | cpl      | 98765321 |
- | carol | brig gen |     8745 |
- `-------+----------+----------'
+Will be supported in the future.
 
-When using C<Text::ASCIITable> backend:
+=item * 'style' option from Text::Table::Tiny is not supported
 
- .-----------------------------.
- | Name  | Rank     | Serial   |
- +-------+----------+----------+
- | alice | pvt      |   123456 |
- | bob   | cpl      | 98765321 |
- | carol | brig gen |     8745 |
- '-------+----------+----------'
+Won't be supported because this is specific to Text::Table::Tiny. If you want
+custom border styles, here are some alternative backends you can use:
+L<Text::Table::TinyBorderStyle>, L<Text::Table::More>,
+L<Text::UnicodeBox::Table>.
 
-When using C<Text::FormatTable> backend:
+=item * 'indent' option from Text::Table::Tiny is not supported
 
- Name |Rank    |Serial
- alice|pvt     |123456
- bob  |cpl     |98765321
- carol|brig gen|8745
+Probably won't be supported. You can indent a multiline string in Perl using
+something like:
 
-When using C<Text::MarkdownTable> backend:
+ $rendered_table =~ s/^/  /mg; # indent each line with two spaces
 
- | Name  | Rank     | Serial   |
- |-------|----------|----------|
- | alice | pvt      | 123456   |
- | bob   | cpl      | 98765321 |
- | carol | brig gen | 8745     |
+=item * 'compact' option from Text::Table::Tiny is not supported
 
-When using C<Text::Table> backend:
+May be supported in the future.
 
- Name  Rank     Serial
- alice pvt        123456
- bob   cpl      98765321
- carol brig gen     8745
-
-When using C<Text::TabularDisplay> backend:
-
- +-------+----------+----------+
- | Name  | Rank     | Serial   |
- +-------+----------+----------+
- | alice | pvt      | 123456   |
- | bob   | cpl      | 98765321 |
- | carol | brig gen | 8745     |
- +-------+----------+----------+
+=back
 
 
 =head1 FUNCTIONS
