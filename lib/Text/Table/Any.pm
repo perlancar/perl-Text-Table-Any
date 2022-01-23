@@ -577,8 +577,9 @@ The result is something like:
 
 This module provides a single function, C<generate_table>, which formats a
 two-dimensional array of data as text table, using one of several available
-backends. The interface is modelled after L<Text::Table::Tiny>.
-L<Text::Table::Sprintf> is the default backend.
+backends. The interface is modelled after L<Text::Table::Tiny>, but
+L<Text::Table::Sprintf> is the default backend and although Text::Table::Tiny is
+among the supported backends, it is not required by this module.
 
 
 =head1 DIFFERENCES WITH TEXT::TABLE::TINY
