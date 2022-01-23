@@ -57,30 +57,40 @@ our %BACKEND_FEATURES = (
         header_row => 1,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::CSV" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::HTML" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 1,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::HTML::DataTables" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 1,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::LTSV" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::Manifold" => {
         rows => 1,
@@ -93,72 +103,96 @@ our %BACKEND_FEATURES = (
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::Org" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::Paragraph" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::Sprintf" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TickitWidget" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::Tiny" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TinyBorderStyle" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TinyColor" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TinyColorWide" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TinyWide" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::TSV" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::Table::XLSX" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         title => 0,
+        backend_opts => 1,
+        backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
     "Text::TabularDisplay" => {
         rows => 1,
@@ -278,12 +312,14 @@ sub table {
         return Text::Table::ASV::table(
             rows => $rows,
             header_row => $header_row,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::CSV') {
         require Text::Table::CSV;
         return Text::Table::CSV::table(
             rows => $rows,
             header_row => $header_row,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::HTML') {
         require Text::Table::HTML;
@@ -291,6 +327,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             (title => $params{title}) x !!defined($params{title}),
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::HTML::DataTables') {
         require Text::Table::HTML::DataTables;
@@ -298,11 +335,13 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             (title => $params{title}) x !!defined($params{title}),
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::LTSV') {
         require Text::Table::LTSV;
         return Text::Table::LTSV::table(
             rows => $rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::Manifold') {
         require Text::Table::Manifold;
@@ -321,6 +360,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::Org') {
         require Text::Table::Org;
@@ -328,12 +368,14 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::Paragraph') {
         require Text::Table::Paragraph;
         return Text::Table::Paragraph::table(
             rows => $rows,
             header_row => $header_row,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::Sprintf') {
         require Text::Table::Sprintf;
@@ -341,12 +383,14 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TickitWidget') {
         require Text::Table::TickitWidget;
         return Text::Table::TickitWidget::table(
             rows => $rows,
             header_row => $header_row,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::Tiny') {
         require Text::Table::Tiny;
@@ -354,6 +398,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
         require Text::Table::TinyBorderStyle;
@@ -361,6 +406,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColor') {
         require Text::Table::TinyColor;
@@ -368,6 +414,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColorWide') {
         require Text::Table::TinyColorWide;
@@ -375,6 +422,7 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyWide') {
         require Text::Table::TinyWide;
@@ -382,17 +430,20 @@ sub table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TSV') {
         require Text::Table::TSV;
         return Text::Table::TSV::table(
             rows => $rows,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::XLSX') {
         require Text::Table::XLSX;
         return Text::Table::XLSX::table(
             rows => $rows,
             header_row => $header_row,
+            defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::TabularDisplay') {
         require Text::TabularDisplay;
@@ -576,6 +627,14 @@ Optional. Str. Title of the table.
 
 Currently the only backends supporting this are C<Text::Table::HTML> and
 C<Text::Table::HTML::DataTables>.
+
+=item * backend_opts
+
+Optional. Hashref. Pass backend-specific options to the backend module. Not all
+backend modules support this, but all backend modules that have interface
+following C<Text::Table::Tiny> should support this. Also note that as the list
+of common options is expanded, a previously backend-specific option might be
+available later as a common option.
 
 =back
 
