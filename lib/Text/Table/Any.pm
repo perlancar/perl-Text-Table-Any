@@ -4,6 +4,9 @@ use 5.010001;
 use strict;
 use warnings;
 
+use Exporter qw(import);
+our @EXPORT_OK = qw(generate_table);
+
 # AUTHORITY
 # DATE
 # DIST
@@ -220,7 +223,7 @@ sub backends {
     @BACKENDS;
 }
 
-sub table {
+sub generate_table {
     my %params = @_;
 
     my $rows          = $params{rows} or die "Must provide rows!";
@@ -466,12 +469,18 @@ sub table {
     }
 }
 
+{
+    no strict 'refs'; ## no critic: TestingAndDebugging::ProhibitNoStrict
+    no warnings 'once';
+    *table = \&generate_table;
+}
+
 1;
 #ABSTRACT: Generate text table using one of several backends
 
 =head1 SYNOPSIS
 
- use Text::Table::Any;
+ use Text::Table::Any qw/generate_table/;
 
  my $rows = [
      # header row
@@ -487,9 +496,9 @@ sub table {
 
 =head1 DESCRIPTION
 
-This module provides a single function, C<table>, which formats a
+This module provides a single function, C<generate_table>, which formats a
 two-dimensional array of data as text table, using one of several available
-backends. The interface is modelled after L<Text::Table::Tiny> (0.03).
+backends. The interface is modelled after L<Text::Table::Tiny>.
 L<Text::Table::Sprintf> is the default backend.
 
 The example shown in the SYNOPSIS generates the following table:
@@ -573,6 +582,13 @@ When using C<Text::TabularDisplay> backend:
 =head1 FUNCTIONS
 
 =head2 table
+
+An old name for L</generate_table> function (C<generate_table()> was not
+available in Text::Table::Tiny < 0.04). This name is not available for export.
+
+=head2 generate_table
+
+Exportable.
 
 Usage:
 
