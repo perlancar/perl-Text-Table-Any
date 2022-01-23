@@ -371,6 +371,7 @@ sub generate_table {
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
+            defined($params{caption}) ? (caption => $params{caption}) : (),
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::Paragraph') {
