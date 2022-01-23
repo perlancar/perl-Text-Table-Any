@@ -1,3 +1,11 @@
+0.110   2022-01-23  Released-By: PERLANCAR; Urgency: medium
+
+	- Add option: backend_opts.
+
+	- [bugfix] An extraneous newline was added to the output of
+	  Text::Table::Sprintf.
+
+
 0.109   2022-01-14  Released-By: PERLANCAR; Urgency: medium
 
 	- [bugfix] Always enable strict, warnings, and particularly 5.010
