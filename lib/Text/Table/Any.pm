@@ -17,49 +17,49 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Term::TablePrint" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::ANSITable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
     },
     "Text::ASCIITable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::FormatTable" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::MarkdownTable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::Table" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::Table::ASV" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -67,7 +67,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -75,7 +75,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 1,
+        caption => 1,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -83,7 +83,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 1,
+        caption => 1,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -91,7 +91,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 0,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -99,13 +99,13 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::Table::More" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -113,7 +113,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -121,7 +121,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -129,7 +129,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -137,7 +137,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -145,7 +145,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -153,7 +153,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -161,7 +161,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -169,7 +169,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -177,7 +177,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 1,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -185,7 +185,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 0,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -193,7 +193,7 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
     },
@@ -201,13 +201,13 @@ our %BACKEND_FEATURES = (
         rows => 1,
         header_row => 0,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
     "Text::UnicodeBox::Table" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
-        title => 0,
+        caption => 0,
     },
 );
 
@@ -329,7 +329,7 @@ sub generate_table {
         return Text::Table::HTML::table(
             rows => $rows,
             header_row => $header_row,
-            (title => $params{title}) x !!defined($params{title}),
+            (caption => $params{caption}) x !!defined($params{caption}),
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::HTML::DataTables') {
@@ -337,7 +337,7 @@ sub generate_table {
         return Text::Table::HTML::DataTables::table(
             rows => $rows,
             header_row => $header_row,
-            (title => $params{title}) x !!defined($params{title}),
+            (caption => $params{caption}) x !!defined($params{caption}),
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
         );
     } elsif ($backend eq 'Text::Table::LTSV') {
@@ -484,15 +484,93 @@ sub generate_table {
  use Text::Table::Any qw/generate_table/;
 
  my $rows = [
-     # header row
-     ['Name', 'Rank', 'Serial'],
-     # rows
-     ['alice', 'pvt', '123456'],
-     ['bob',   'cpl', '98765321'],
-     ['carol', 'brig gen', '8745'],
+     # first element is header row
+     ['Distribution', 'Author', 'First Version', 'Latest Version', 'Abstract'],
+
+     # subsequent elements are data rows
+     ['ACME-Dzil-Test-daemon', 'DAEMON', '0.001', '0.001', 'Module abstract placeholder text'],
+     ['ACME-Dzil-Test-daemon2', 'DAEMON', '0.001', '0.001', 'Module abstract placeholder text'],
+     ['Acme-CPANModules-ShellCompleters', 'PERLANCAR', '0.001', '0.001', 'Modules that provide shell tab completion for other commands/scripts'],
+     ['Acme-CPANModules-WorkingWithURL', 'PERLANCAR', '0.001', '0.001', 'Working with URL'],
  ];
- print Text::Table::Any::table(rows => $rows, header_row => 1,
-                               backend => 'Text::Table::More');
+
+ print generate_table(rows => $rows);
+
+will render the table using the default backend L<Text::Table::Sprintf> and
+print something like:
+
+ +----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------+
+ | Distribution                     | Author    | First Version | Latest Version | Abstract                                                             |
+ +----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------+
+ | ACME-Dzil-Test-daemon            | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ | ACME-Dzil-Test-daemon2           | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ | Acme-CPANModules-ShellCompleters | PERLANCAR | 0.001         | 0.001          | Modules that provide shell tab completion for other commands/scripts |
+ | Acme-CPANModules-WorkingWithURL  | PERLANCAR | 0.001         | 0.001          | Working with URL                                                     |
+ +----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------+
+
+To pick another backend:
+
+ print generate_table(
+     rows => $rows,
+     backend => "Text::Table::Org",
+ );
+
+The result is something like:
+
+ | Distribution                     | Author    | First Version | Latest Version | Abstract                                                             |
+ |----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------|
+ | ACME-Dzil-Test-daemon            | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ | ACME-Dzil-Test-daemon2           | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ | Acme-CPANModules-ShellCompleters | PERLANCAR | 0.001         | 0.001          | Modules that provide shell tab completion for other commands/scripts |
+ | Acme-CPANModules-WorkingWithURL  | PERLANCAR | 0.001         | 0.001          | Working with URL                                                     |
+
+To specify some other options:
+
+ print generate_table(
+     rows => $rows,
+     header_row => 0,   # default is true
+     separate_row => 1, # default is false
+     caption => "Some of the new distributions released in Jan 2022",
+     backend => "Text::Table::Org",
+ );
+
+The result is something like:
+
+ #+CAPTION: Some of the new distributions released in Jan 2022
+ | Distribution                     | Author    | First Version | Latest Version | Abstract                                                             |
+ |----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------|
+ | ACME-Dzil-Test-daemon            | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ |----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------|
+ | ACME-Dzil-Test-daemon2           | DAEMON    | 0.001         | 0.001          | Module abstract placeholder text                                     |
+ |----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------|
+ | Acme-CPANModules-ShellCompleters | PERLANCAR | 0.001         | 0.001          | Modules that provide shell tab completion for other commands/scripts |
+ |----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------|
+ | Acme-CPANModules-WorkingWithURL  | PERLANCAR | 0.001         | 0.001          | Working with URL                                                     |
+
+To pass backend-specific options:
+
+ print generate_table(
+     rows => $rows,
+     backend => "Text::Table::More",
+     backend_opts => {
+         border_style => 'ASCII::SingleLineDoubleAfterHeader',
+         align => 'right',
+         row_attrs => [
+             [0, {align=>'middle'}],
+         ],
+     },
+ );
+
+The result is something like:
+
+ .----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------.
+ |           Distribution           |  Author   | First Version | Latest Version |                               Abstract                               |
+ +==================================+===========+===============+================+======================================================================+
+ |            ACME-Dzil-Test-daemon |    DAEMON |         0.001 |          0.001 |                                     Module abstract placeholder text |
+ |           ACME-Dzil-Test-daemon2 |    DAEMON |         0.001 |          0.001 |                                     Module abstract placeholder text |
+ | Acme-CPANModules-ShellCompleters | PERLANCAR |         0.001 |          0.001 | Modules that provide shell tab completion for other commands/scripts |
+ |  Acme-CPANModules-WorkingWithURL | PERLANCAR |         0.001 |          0.001 |                                                     Working with URL |
+ `----------------------------------+-----------+---------------+----------------+----------------------------------------------------------------------'
 
 
 =head1 DESCRIPTION
@@ -504,21 +582,8 @@ L<Text::Table::Sprintf> is the default backend.
 
 The example shown in the SYNOPSIS generates the following table:
 
- +-------+----------+----------+
- | Name  | Rank     | Serial   |
- +-------+----------+----------+
- | alice | pvt      | 123456   |
- | bob   | cpl      | 98765321 |
- | carol | brig gen | 8745     |
- +-------+----------+----------+
 
 When using C<Text::Table::Org> backend, the result is something like:
-
- | Name  | Rank     | Serial   |
- |-------+----------+----------|
- | alice | pvt      | 123456   |
- | bob   | cpl      | 98765321 |
- | carol | brig gen | 8745     |
 
 When using C<Text::Table::CSV> backend:
 
@@ -626,7 +691,7 @@ of data, where each row is an array reference.
 
 =item * header_row
 
-Optional. Bool, default is false. If given a true value, the first row in the
+Optional. Bool, default is true. If given a true value, the first row in the
 data will be interpreted as a header row, and separated visually from the rest
 of the table (e.g. with a ruled line). But some backends won't display
 differently.
@@ -638,12 +703,9 @@ after each data row.
 
 Not all backends support this.
 
-=item * title
+=item * caption
 
-Optional. Str. Title of the table.
-
-Currently the only backends supporting this are C<Text::Table::HTML> and
-C<Text::Table::HTML::DataTables>.
+Optional. Str. Caption of the table.
 
 =item * backend_opts
 
