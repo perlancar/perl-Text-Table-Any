@@ -228,7 +228,7 @@ sub generate_table {
 
     my $rows          = $params{rows} or die "Must provide rows!";
     my $backend       = $params{backend} || 'Text::Table::Sprintf';
-    my $header_row    = $params{header_row} // 1;
+    my $header_row    = $params{header_row} // 0;
     my $separate_rows = $params{separate_rows} // 0;
 
     if ($backend eq 'Term::Table') {
