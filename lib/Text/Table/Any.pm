@@ -599,7 +599,7 @@ Will be supported in the future.
 
 Won't be supported because this is specific to Text::Table::Tiny. If you want
 custom border styles, here are some alternative backends you can use:
-L<Text::Table::TinyBorderStyle>, L<Text::Table::More>,
+L<Text::ANSITable>, L<Text::Table::TinyBorderStyle>, L<Text::Table::More>,
 L<Text::UnicodeBox::Table>.
 
 =item * 'indent' option from Text::Table::Tiny is not supported
