@@ -89,7 +89,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::HTML::DataTables" => {
         rows => 1,
@@ -99,7 +99,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::LTSV" => {
         rows => 1,
@@ -180,7 +180,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::TinyColor" => {
         rows => 1,
@@ -190,7 +190,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::TinyColorWide" => {
         rows => 1,
@@ -200,7 +200,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::TinyWide" => {
         rows => 1,
@@ -210,7 +210,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
-        align_note => "TODO, backend does not support yet, parameter alreaday passed",
+        align_note => "TODO, backend does not support yet, parameter already passed",
     },
     "Text::Table::TSV" => {
         rows => 1,
