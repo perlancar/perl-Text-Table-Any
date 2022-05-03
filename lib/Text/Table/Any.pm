@@ -152,6 +152,7 @@ our %BACKEND_FEATURES = (
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
         align => 0,
+        align_note => "",
     },
     "Text::Table::TickitWidget" => {
         rows => 1,
