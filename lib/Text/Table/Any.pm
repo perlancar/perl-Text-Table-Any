@@ -18,42 +18,50 @@ our %BACKEND_FEATURES = (
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 0,
     },
     "Term::TablePrint" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 0,
     },
     "Text::ANSITable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 1,
         caption => 0,
+        align => 1,
     },
     "Text::ASCIITable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 1,
     },
     "Text::FormatTable" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
         caption => 0,
+        align => 1,
+        align_note => "c(enter) alignment is not supported, will fallback to l(eft)",
     },
     "Text::MarkdownTable" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 0,
     },
     "Text::Table" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
         caption => 0,
+        align => 1,
     },
     "Text::Table::ASV" => {
         rows => 1,
@@ -62,6 +70,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::CSV" => {
         rows => 1,
@@ -70,6 +79,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::HTML" => {
         rows => 1,
@@ -78,6 +88,8 @@ our %BACKEND_FEATURES = (
         caption => 1,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::HTML::DataTables" => {
         rows => 1,
@@ -86,6 +98,8 @@ our %BACKEND_FEATURES = (
         caption => 1,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::LTSV" => {
         rows => 1,
@@ -94,12 +108,14 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::Manifold" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 1,
     },
     "Text::Table::More" => {
         rows => 1,
@@ -108,6 +124,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 1,
     },
     "Text::Table::Org" => {
         rows => 1,
@@ -116,6 +133,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::Paragraph" => {
         rows => 1,
@@ -124,6 +142,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::Sprintf" => {
         rows => 1,
@@ -132,6 +151,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::TickitWidget" => {
         rows => 1,
@@ -140,6 +160,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::Tiny" => {
         rows => 1,
@@ -148,6 +169,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 1,
     },
     "Text::Table::TinyBorderStyle" => {
         rows => 1,
@@ -156,6 +178,8 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::TinyColor" => {
         rows => 1,
@@ -164,6 +188,8 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::TinyColorWide" => {
         rows => 1,
@@ -172,6 +198,8 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::TinyWide" => {
         rows => 1,
@@ -180,6 +208,8 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
+        align_note => "TODO, backend does not support yet, parameter alreaday passed",
     },
     "Text::Table::TSV" => {
         rows => 1,
@@ -188,6 +218,7 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::Table::XLSX" => {
         rows => 1,
@@ -196,18 +227,22 @@ our %BACKEND_FEATURES = (
         caption => 0,
         backend_opts => 1,
         backend_opts_note => "Backend-specific options (backend_opts) will be passed to table() or generate_table() directly",
+        align => 0,
     },
     "Text::TabularDisplay" => {
         rows => 1,
         header_row => 0,
         separate_rows => 0,
         caption => 0,
+        align => 0,
     },
     "Text::UnicodeBox::Table" => {
         rows => 1,
         header_row => 1,
         separate_rows => 0,
         caption => 0,
+        align => 0,
+        align_note => "TODO: backend supports left/right",
     },
 );
 
@@ -230,6 +265,7 @@ sub generate_table {
     my $backend       = $params{backend} || 'Text::Table::Sprintf';
     my $header_row    = $params{header_row} // 0;
     my $separate_rows = $params{separate_rows} // 0;
+    my $align         = $params{align};
 
     if ($backend eq 'Term::Table') {
         require Term::Table;
@@ -263,6 +299,7 @@ sub generate_table {
             use_box_chars => 0,
             use_color => 0,
             border_style => 'ASCII::SingleLine',
+            ($align && !ref($align) ? (cell_align => ($align eq 'r' ? 'right' : $align eq 'c' ? 'middle' : 'left')) : ()),
         );
         # XXX pick an appropriate border style when header_row=0
         if ($header_row) {
@@ -273,21 +310,52 @@ sub generate_table {
             $t->add_row($_) for @$rows;
         }
         $t->show_row_separator(1) if $separate_rows;
+        if (ref $align) {
+            for my $i (0 .. @{$rows->[0]}-1) {
+                my $col_align = $align->[$i];
+                next unless $col_align;
+                $t->set_column_style($i, align => ($col_align eq 'r' ? 'right' : $col_align eq 'c' ? 'middle' : 'left'));
+            }
+        }
         return $t->draw;
     } elsif ($backend eq 'Text::ASCIITable') {
         require Text::ASCIITable;
         my $t = Text::ASCIITable->new();
+        my @colnames;
         if ($header_row) {
-            $t->setCols(@{ $rows->[0] });
+            @colnames = @{ $rows->[0] };
+            $t->setCols(@colnames);
             $t->addRow(@{ $rows->[$_] }) for 1..@$rows-1;
         } else {
-            $t->setCols(map { "col$_" } 0..$#{ $rows->[0] });
+            @colnames = map { "col$_" } 0..$#{ $rows->[0] };
+            $t->setCols(@colnames);
             $t->addRow(@$_) for @$rows;
+        }
+        if ($align) {
+            for my $i (ref $align ? (0 .. $#{$align}) : (0 .. @colnames-1)) {
+                my $colname = $colnames[$i];
+                my $col_align = ref $align ? $align->[$i] : $align;
+                my $align_val = ($col_align eq 'r' ? 'right' : $col_align eq 'c' ? 'center' : 'left');
+                #say "D:aligning col: $colname -> $align_val";
+                $t->alignCol($colname, $align_val);
+            }
         }
         return "$t";
     } elsif ($backend eq 'Text::FormatTable') {
         require Text::FormatTable;
-        my $t = Text::FormatTable->new(join('|', ('l') x @{ $rows->[0] }));
+        my @formats = ('l') x @{ $rows->[0] };
+        if ($align) {
+            if (ref $align) {
+                for my $i (0 .. @{$align}-1) {
+                    my $col_align = $align->[$i];
+                    $formats[$i] = $col_align eq 'r' ? 'r' : 'l';
+                }
+            } else {
+                @formats = ($align eq 'r' ? 'r' : 'l') x @{ $rows->[0] };
+            }
+        }
+        #use DD; dd \@formats;
+        my $t = Text::FormatTable->new(join('|', @formats));
         $t->head(@{ $rows->[0] });
         $t->row(@{ $rows->[$_] }) for 1..@$rows-1;
         return $t->render;
@@ -307,9 +375,30 @@ sub generate_table {
         return $out;
     } elsif ($backend eq 'Text::Table') {
         require Text::Table;
-        my $t = Text::Table->new(@{ $rows->[0] });
+        my @colspecs;
+        for my $i (0 .. @{ $rows->[0] }-1) {
+            push @colspecs, {
+                title => $rows->[0][$i],
+            };
+        }
+        if ($align) {
+            if (ref $align) {
+                for my $i (0 .. @{$align}-1) {
+                    my $col_align = $align->[$i];
+                    $colspecs[$i]{align} = $col_align eq 'r' ? 'right' : $col_align eq 'c' ? 'center' : 'left';
+                    $colspecs[$i]{align_title} = $colspecs[$i]{align};
+                }
+            } else {
+                for my $i (0 .. @{ $rows->[0] }-1) {
+                    $colspecs[$i]{align} = $align eq 'r' ? 'right' : $align eq 'c' ? 'center' : 'left';
+                    $colspecs[$i]{align_title} = $colspecs[$i]{align};
+                }
+            }
+        }
+        #use DD; dd \@colspecs;
+        my $t = Text::Table->new(@colspecs);
         $t->load(@{ $rows }[1..@$rows-1]);
-        return $t;
+        return "$t";
     } elsif ($backend eq 'Text::Table::ASV') {
         require Text::Table::ASV;
         return Text::Table::ASV::table(
@@ -331,6 +420,7 @@ sub generate_table {
             header_row => $header_row,
             (caption => $params{caption}) x !!defined($params{caption}),
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         );
     } elsif ($backend eq 'Text::Table::HTML::DataTables') {
         require Text::Table::HTML::DataTables;
@@ -339,6 +429,7 @@ sub generate_table {
             header_row => $header_row,
             (caption => $params{caption}) x !!defined($params{caption}),
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         );
     } elsif ($backend eq 'Text::Table::LTSV') {
         require Text::Table::LTSV;
@@ -348,7 +439,23 @@ sub generate_table {
         );
     } elsif ($backend eq 'Text::Table::Manifold') {
         require Text::Table::Manifold;
-        my $t = Text::Table::Manifold->new;
+        my @ttm_args;
+        if ($align) {
+            my @aligns;
+            if (ref $align) {
+                for my $i (0 .. @{$align}-1) {
+                    my $col_align = $align->[$i];
+                    push @aligns, $col_align eq 'r' ? Text::Table::Manifold::align_right() : $col_align eq 'c' ? Text::Table::Manifold::align_center() : Text::Table::Manifold::align_left();
+                }
+            } else {
+                for my $i (0 .. @{ $rows->[0] }-1) {
+                    my $col_align = $align;
+                    push @aligns, $col_align eq 'r' ? Text::Table::Manifold::align_right() : $col_align eq 'c' ? Text::Table::Manifold::align_center() : Text::Table::Manifold::align_left();
+                }
+            }
+            push @ttm_args, alignment => \@aligns;
+        }
+        my $t = Text::Table::Manifold->new(@ttm_args);
         if ($header_row) {
             $t->headers($rows->[0]);
             $t->data([ @{$rows}[1 .. $#{$rows}] ]);
@@ -359,12 +466,25 @@ sub generate_table {
         return join("\n", @{$t->render(padding => 1)}) . "\n";
     } elsif ($backend eq 'Text::Table::More') {
         require Text::Table::More;
-        return Text::Table::More::generate_table(
+        my @ttm_args = (
             rows => $rows,
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
-        ) . "\n";
+        );
+        if ($align) {
+            if (ref $align) {
+                my @col_attrs;
+                for my $i (0 .. @$align-1) {
+                    my $col_align = $align->[$i];
+                    push @col_attrs, [$i, {align=>($col_align eq 'r' ? 'right' : $col_align eq 'c' ? 'middle' : 'left')}];
+                }
+                push @ttm_args, col_attrs => \@col_attrs;
+            } else {
+                push @ttm_args, align => ($align eq 'r' ? 'right' : $align eq 'c' ? 'middle' : 'left');
+            }
+        }
+        return Text::Table::More::generate_table(@ttm_args);
     } elsif ($backend eq 'Text::Table::Org') {
         require Text::Table::Org;
         return Text::Table::Org::table(
@@ -403,6 +523,7 @@ sub generate_table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            $align ? (align => $align) : (),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyBorderStyle') {
         require Text::Table::TinyBorderStyle;
@@ -411,6 +532,7 @@ sub generate_table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColor') {
         require Text::Table::TinyColor;
@@ -419,6 +541,7 @@ sub generate_table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyColorWide') {
         require Text::Table::TinyColorWide;
@@ -427,6 +550,7 @@ sub generate_table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TinyWide') {
         require Text::Table::TinyWide;
@@ -435,6 +559,7 @@ sub generate_table {
             header_row => $header_row,
             separate_rows => $separate_rows,
             defined($params{backend_opts}) ? %{$params{backend_opts}} : (),
+            ($align ? (align => $align) : ()),
         ) . "\n";
     } elsif ($backend eq 'Text::Table::TSV') {
         require Text::Table::TSV;
@@ -591,10 +716,6 @@ among the supported backends, it is not required by this module.
 Probably won't be supported. You can pass this option to Text::Table::Tiny
 backend via L</backend_opts> option.
 
-=item * 'align' option from Text::Table::Tiny is not supported
-
-Will be supported in the future.
-
 =item * 'style' option from Text::Table::Tiny is not supported
 
 Won't be supported because this is specific to Text::Table::Tiny. If you want
@@ -677,6 +798,20 @@ Not all backends support this.
 =item * caption
 
 Optional. Str. Caption of the table.
+
+=item * align
+
+Optional. Array of Str or Str.
+
+This takes an array ref with one entry per column, to specify the alignment of
+that column. Legal values are 'l', 'c', and 'r'. You can also specify a single
+alignment for all columns. ANSI escape codes are handled.
+
+Note that some backends like L<Text::ANSITable> and L<Text::Table::More> support
+per-row or per-cell or even conditional alignment. Some backends like
+L<Text::ASCIITable> and L<Text::Table> can also align beyond just l(eft),
+c(enter), r(right), e.g. C<justify> or align on a decimal point. To do more
+fine-grained alignment setting, you can use the C<backend_opts> parameter.
 
 =item * backend_opts
 
