@@ -769,7 +769,7 @@ backends:
 
 =over
 
-# CODE: require Text::Table::Any; for (@Text::Table::Any::BACKENDS) { print "=item * $_\n\n" }
+# CODE: require Text::Table::Any; for (@Text::Table::Any::BACKENDS) { print "=item * L<$_>\n\n" }
 
 =back
 
