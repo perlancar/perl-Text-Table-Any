@@ -806,7 +806,7 @@ Optional. Array of Str or Str.
 
 This takes an array ref with one entry per column, to specify the alignment of
 that column. Legal values are 'l', 'c', and 'r'. You can also specify a single
-alignment for all columns. ANSI escape codes are handled.
+alignment for all columns.
 
 Note that some backends like L<Text::ANSITable> and L<Text::Table::More> support
 per-row or per-cell or even conditional alignment. Some backends like
